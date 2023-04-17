@@ -12,8 +12,9 @@ const HomePage = () => {
             Didactic Round Robin
         </h1>
         <p className="text-center text-sm font-light text-gray-500">
-          Con Didactic Round Robin puedes crear y ejecutar ejercicios utiliando el metodo Round Robin 
-          y tambien aprender todo lo necesario de este metodo.
+          Con Didactic Round Robin puedes crear y ejecutar ejercicios utilizando el método Round Robin 
+          y también aprender todo lo necesario de este método.
+
         </p>
       </div>
 
@@ -25,8 +26,8 @@ const HomePage = () => {
           </h1>
           <img className="m-auto" src={play} alt="" />
           <p className="text-center text-sm font-light text-white">
-            Con Didactic Round Robin puedes ejecutar paso a paso programas de planificacion de procesos 
-            mediante el metodo Round Robin con la cantidad de procesos, entradas y salidas que necesites.
+            Con Didactic Round Robin puedes ejecutar paso a paso programas de planificación de procesos 
+            mediante el método Round Robin con la cantidad de procesos, entradas y salidas que necesites.
           </p>
           <p className="text-center text-sm font-light text-white">
             Da click en "Empezar" para crear un programa con los procesos que necesites.
@@ -47,12 +48,11 @@ const HomePage = () => {
         <div className="grid justify-evenly bg-emerald-400 p-12 bg-gradient-to-r from-sky-500 via-teal-500 
         to-emerald-500">
             <h1 className="text-center text-4xl mt-10 font-bold text-white">
-              Aprende que es Round Robin y como utilizarlo
+              Aprende que es Round Robin y cómo utilizarlo
             </h1>
             <img className="m-auto" src={learning} alt="" />
             <p className="text-center text-sm font-light text-white">
-              Aprende acerca de Round Robin y todo lo que necesitas de este metodo de forma facil y eficas.
-          </p>
+              Aprende acerca de Round Robin y todo lo que necesitas de este método de forma fácil y eficaz.          </p>
           <div className="flex justify-center mt-5 h-max">
             <Link
               to="/about"
