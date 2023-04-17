@@ -1,30 +1,71 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import learngif from '../assets/images/aprender.gif';
+import learning from '../assets/images/learning.png';
+import play from '../assets/images/comienzo.png';
 
 const HomePage = () => {
   return (
-    <section className="w-10/12 h-[90vh] flex justify-center items-center mx-auto">
-      <main>
-        <div>
-          <h1 className="text-center text-4xl font-bold text-red-500">
-            Round Robin
+    <section className="container">
+      <div className="my-12">
+        <h1 className="text-center text-4xl font-bold text-emerald-400">
+            Didactic Round Robin
+        </h1>
+        <p className="text-center text-sm font-light text-gray-500">
+          Con Didactic Round Robin puedes crear y ejecutar ejercicios utiliando el metodo Round Robin 
+          y tambien aprender todo lo necesario de este metodo.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 h-screen">
+
+        <div className="grid justify-evenly bg-emerald-950 p-12">
+          <h1 className="text-center text-4xl mt-10 font-bold text-white">
+            Crea y ejecuta
           </h1>
-          <p className="text-center text-sm font-light text-gray-500">
-            Es un sistema de competición en el que los participantes se
-            enfrentan divididos en grupos, en los cuales el ganador de cada
-            grupo avanza a una instancia de eliminación directa.
+          <img className="m-auto" src={play} alt="" />
+          <p className="text-center text-sm font-light text-white">
+            Con Didactic Round Robin puedes ejecutar paso a paso programas de planificacion de procesos 
+            mediante el metodo Round Robin con la cantidad de procesos, entradas y salidas que necesites.
+          </p>
+          <p className="text-center text-sm font-light text-white">
+            Da click en "Empezar" para crear un programa con los procesos que necesites.
           </p>
 
-          <div className="flex justify-center mt-5">
+          <div className="flex justify-center mt-5 h-max">
             <Link
               to="/roundrobin"
-              className="inline-block px-8 py-3 rounded-lg bg-red-500 text-white font-bold hover:bg-red-600 transition-colors duration-300"
+              className="inline-block px-8 py-3 rounded-lg bg-emerald-400 text-white font-bold 
+              hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline 
+              transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
             >
-              Iniciar
+              Comenzar
             </Link>
           </div>
         </div>
-      </main>
+
+        <div className="grid justify-evenly bg-emerald-400 p-12 bg-gradient-to-r from-sky-500 via-teal-500 
+        to-emerald-500">
+            <h1 className="text-center text-4xl mt-10 font-bold text-white">
+              Aprende que es Round Robin y como utilizarlo
+            </h1>
+            <img className="m-auto" src={learning} alt="" />
+            <p className="text-center text-sm font-light text-white">
+              Aprende acerca de Round Robin y todo lo que necesitas de este metodo de forma facil y eficas.
+          </p>
+          <div className="flex justify-center mt-5 h-max">
+            <Link
+              to="/about"
+              className="inline-block px-8 py-3 rounded-lg bg-emerald-400 text-white font-bold 
+              hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline 
+              transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+            >
+              Aprender
+            </Link>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 };

@@ -28,7 +28,7 @@ const Contain = () => {
       <div className="flex justify-end">
         <button
           type="button"
-          className="bg-red-500 text-white font-bold hover:bg-red-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          className="bg-emerald-400 text-white font-bold hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
           onClick={() => {
             setIsModalOpen(true);
           }}
