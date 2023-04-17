@@ -77,7 +77,7 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
           onSubmit={handleSubmit}
           className="rounded mx-auto max-w-[400px] w-[400px]"
         >
-          <h2 className="text-2xl text-center text-red-500 font-bold mb-4">
+          <h2 className="text-2xl text-center text-emerald-400 font-bold mb-4">
             AGREGAR PROCESO
           </h2>
           <div className="mb-4">
@@ -91,7 +91,7 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
               type="text"
               name="name"
               id="name"
-              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-red-500 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
               value={processInfo.name}
               onChange={handleInputChange}
               required
@@ -108,7 +108,7 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
               type="number"
               name="arrivalTime"
               id="arrival-time"
-              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-red-500 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
               value={processInfo.arrivalTime}
               onChange={handleInputChange}
               required
@@ -128,7 +128,7 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
                     type="number"
                     name="ncpu"
                     id="quantum-time"
-                    className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-red-500 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
                     value={ncpu_es.ncpu}
                     onChange={(event) => handleNCPUChange(event, index)}
                     required
@@ -145,7 +145,7 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
                     type="number"
                     name="ncpu_es"
                     id="io-quantum"
-                    className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-red-500 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
                     value={ncpu_es.ncpu_es}
                     onChange={(event) => handleNCPUChange(event, index)}
                     required
@@ -160,13 +160,13 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
               onClick={() => {
                 addES();
               }}
-              className="bg-red-500 text-white font-bold hover:bg-red-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+              className="bg-emerald-500 text-white font-bold hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
             >
               Agregar E/S
             </button>
             <button
               type="submit"
-              className="bg-red-500 text-white font-bold hover:bg-red-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y hover:scale-110"
+              className="bg-emerald-500 text-white font-bold hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-500 ease-in-out transform hover:-translate-y hover:scale-110"
             >
               Aceptar
             </button>

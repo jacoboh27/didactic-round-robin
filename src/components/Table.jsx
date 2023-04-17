@@ -135,7 +135,7 @@ const Table = ({ deleteProcess }) => {
                         <td className="px-6 py-4">
                           <button
                             onClick={() => deleteProcess(process.id)}
-                            className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-white bg-red-500 p-3 rounded hover:focus:outline-none hover:bg-red-600 transition-colors duration-300"
+                            className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-white bg-emerald-500 p-3 rounded hover:focus:outline-none hover:bg-emerald-600 transition-colors duration-300"
                           >
                             Delete
                           </button>

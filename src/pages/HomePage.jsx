@@ -6,7 +6,7 @@ import play from '../assets/images/comienzo.png';
 
 const HomePage = () => {
   return (
-    <section className="container">
+    <section>
       <div className="my-12">
         <h1 className="text-center text-4xl font-bold text-emerald-400">
             Didactic Round Robin
