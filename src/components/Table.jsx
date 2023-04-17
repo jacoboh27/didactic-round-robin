@@ -90,7 +90,7 @@ const Table = ({ deleteProcess }) => {
                                 {process.name}
                               </div>
                               <div className="text-sm text-gray-500">
-                                Tiempo de llegada:{" "}
+                                Tiempo de llegada: {" "}
                                 <span className="font-bold">
                                   {process.arrivalTime} ms
                                 </span>
