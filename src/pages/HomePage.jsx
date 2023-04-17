@@ -12,7 +12,7 @@ const HomePage = () => {
             Didactic Round Robin
         </h1>
         <p className="text-center text-sm font-light text-gray-500">
-          Con Didactic Round Robin puedes crear y ejecutar ejercicios utilizando el método Round Robin 
+          Con Didactic Round Robin puedes ejecutar ejercicios utilizando el método Round Robin 
           y también aprender todo lo necesario de este método.
 
         </p>
@@ -26,7 +26,7 @@ const HomePage = () => {
           </h1>
           <img className="m-auto" src={play} alt="" />
           <p className="text-center text-sm font-light text-white">
-            Con Didactic Round Robin puedes ejecutar paso a paso programas de planificación de procesos 
+            Con Didactic Round Robin puedes crear y ejecutar programas de planificación de procesos 
             mediante el método Round Robin con la cantidad de procesos, entradas y salidas que necesites.
           </p>
           <p className="text-center text-sm font-light text-white">
