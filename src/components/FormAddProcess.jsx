@@ -9,38 +9,40 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
   const [processInfo, setProcessInfo] = useState({
     id: uuidv4(),
     name: "",
-    arrivalTime: "",
-    ncpu_es: [
-      {
-        ncpu: "",
-        ncpu_es: "",
-      },
-    ],
+    arrivalTime: null,
+    ncpu: null,
+    es: [],
   });
 
   const handleNCPUChange = (event, index) => {
     const { name, value } = event.target;
-    const updatedNCPU_ES = [...processInfo.ncpu_es];
-    updatedNCPU_ES[index][name] = value;
+    const updatedES = [...processInfo.es];
+    updatedES[index][name] = Number(value);
     setProcessInfo((prevState) => ({
       ...prevState,
-      ncpu_es: updatedNCPU_ES,
+      es: updatedES,
     }));
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setProcessInfo((prevState) => ({ ...prevState, [name]: value }));
+    let valueProp;
+    if (name == 'name') {
+      valueProp = value;
+    } else {
+      valueProp = Number(value);
+    }
+    setProcessInfo((prevState) => ({ ...prevState, [name]: valueProp }));
   };
 
   const addES = () => {
     setProcessInfo((prevState) => ({
       ...prevState,
-      ncpu_es: [
-        ...prevState.ncpu_es,
+      es: [
+        ...prevState.es,
         {
-          ncpu: "",
-          ncpu_es: "",
+          cost_es: null,
+          ncpu: null,
         },
       ],
     }));
@@ -51,13 +53,9 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
     setProcessInfo({
       id: uuidv4(),
       name: "",
-      arrivalTime: "",
-      ncpu_es: [
-        {
-          ncpu: "",
-          ncpu_es: "",
-        },
-      ],
+      arrivalTime: null,
+      ncpu: null,
+      es: [],
     });
     toast.success("Se ha guardado correctamente el proceso!", {
       position: "top-right",
@@ -69,6 +67,9 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
       progress: undefined,
       theme: "light",
     });
+    setIsModalOpen(false)
+    // console.log("processInfo: ",processInfo);
+    // console.log("processes: ",processes );
   };
   return (
     <>
@@ -114,12 +115,48 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
               required
             />
           </div>
+          <div className="mb-4">
+            <label
+              htmlFor="quantum-time"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              NCPU en Quantum
+            </label>
+            <input
+              type="number"
+              name="ncpu"
+              id="quantum-time"
+              className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
+              value={processInfo.ncpu}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          
+
           <section className="h-44 overflow-auto mb-5">
-            {processInfo.ncpu_es.map((ncpu_es, index) => (
+            {processInfo.es.map((ncpu_es, index) => (
               <div key={index}>
                 <div className="mb-4">
                   <label
                     htmlFor="quantum-time"
+                    className="block text-gray-700 font-bold mb-2"
+                  >
+                    Gasta en E/S
+                  </label>
+                  <input
+                    type="number"
+                    name="cost_es"
+                    id="io-quantum"
+                    className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
+                    value={ncpu_es.cost_es}
+                    onChange={(event) => handleNCPUChange(event, index)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="io-quantum"
                     className="block text-gray-700 font-bold mb-2"
                   >
                     NCPU en Quantum
@@ -130,23 +167,6 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
                     id="quantum-time"
                     className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
                     value={ncpu_es.ncpu}
-                    onChange={(event) => handleNCPUChange(event, index)}
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="io-quantum"
-                    className="block text-gray-700 font-bold mb-2"
-                  >
-                    Quantum de E/S
-                  </label>
-                  <input
-                    type="number"
-                    name="ncpu_es"
-                    id="io-quantum"
-                    className="shadow appearance-none border border-emerald-500 rounded w-full py-2 px-3 text-emerald-500 leading-tight focus:outline-none focus:shadow-outline"
-                    value={ncpu_es.ncpu_es}
                     onChange={(event) => handleNCPUChange(event, index)}
                     required
                   />

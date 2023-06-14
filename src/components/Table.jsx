@@ -9,13 +9,13 @@ const Table = ({ deleteProcess }) => {
   useEffect(() => {
     try {
       const processWithLongestNcpuEs = processes.reduce((previous, current) => {
-        return current.ncpu_es.length > previous.ncpu_es.length
+        return current.es.length > previous.es.length
           ? current
           : previous;
       });
 
       const arrayFromNcpuEsLength = Array.from(
-        { length: processWithLongestNcpuEs.ncpu_es.length },
+        { length: processWithLongestNcpuEs.es.length },
         (_, index) => index + 1
       );
       setNcpuEsLength(arrayFromNcpuEsLength);
@@ -57,6 +57,12 @@ const Table = ({ deleteProcess }) => {
                     >
                       Proceso
                     </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
+                    >
+                      NCPU en Quantum
+                    </th>
                     {NcpuEsLength.length &&
                       NcpuEsLength?.map((objeto, index) => (
                         <>
@@ -64,13 +70,13 @@ const Table = ({ deleteProcess }) => {
                             scope="col"
                             className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
                           >
-                            NCPU en Quantum {index + 1}
+                            Gasta en E/S {index + 1}
                           </th>
                           <th
                             scope="col"
                             className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
-                          >
-                            Quantum de E/S {index + 1}
+                          >    
+                            NCPU en Quantum {index + 1}
                           </th>
                         </>
                       ))}
@@ -98,25 +104,36 @@ const Table = ({ deleteProcess }) => {
                             </div>
                           </div>
                         </td>
+
+                        <td className="px-1 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="ml-4">
+                              <div className="text-sm font-bold text-gray-900">
+                                {process.ncpu} Q
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+
                         {NcpuEsLength.length &&
                           NcpuEsLength?.map((objeto, index) => (
                             <>
-                              {process.ncpu_es[index]?.ncpu ? (
+                              {process.es[index]?.ncpu ? (
                                 <>
+                                  <td
+                                    key={index + "es"}
+                                    className="px-6 py-4 whitespace-nowrap"
+                                  >
+                                    <div className="text-sm text-gray-900">
+                                      {process.es[index].cost_es} Q
+                                    </div>
+                                  </td>
                                   <td
                                     key={index + "ncpu"}
                                     className="px-6 py-4 whitespace-nowrap"
                                   >
                                     <div className="text-sm text-gray-900">
-                                      {process.ncpu_es[index].ncpu} quantum
-                                    </div>
-                                  </td>
-                                  <td
-                                    key={index + "ncpu_es"}
-                                    className="px-6 py-4 whitespace-nowrap"
-                                  >
-                                    <div className="text-sm text-gray-900">
-                                      {process.ncpu_es[index].ncpu_es} quantum
+                                      {process.es[index].ncpu} Q
                                     </div>
                                   </td>
                                 </>
@@ -137,7 +154,7 @@ const Table = ({ deleteProcess }) => {
                             onClick={() => deleteProcess(process.id)}
                             className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-white bg-emerald-500 p-3 rounded hover:focus:outline-none hover:bg-emerald-600 transition-colors duration-300"
                           >
-                            Delete
+                            Eliminar
                           </button>
                         </td>
                       </tr>
