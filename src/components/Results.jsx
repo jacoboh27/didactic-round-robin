@@ -15,6 +15,19 @@ const Results = ({processes, quantumValue, exchangeTimeValue}) => {
   async function continueExecution() {
     // console.log("processes:", processes);
     // console.log("timeElapsed", timeElapsed);
+    runProcesses?.forEach((process, index) => {
+      if (!process.child && process.ncpu > 1) {
+        const ArrayProv = runProcesses;
+        ArrayProv[index].child = true;
+        ArrayProv.push({name: process.name, ncpu: process.ncpu-1, startTime: time, child: false});
+        setRunProcesses(ArrayProv);
+        if (process.ncpu == 2) {
+          findTimeOk(process.name);
+        }
+        time = time + quantumValue + exchangeTimeValue;
+        setTimeElapsed(timeElapsed + quantumValue + exchangeTimeValue);
+      }
+    }); 
     processes.forEach((process, index) => {
       if ( !process.added && process.arrivalTime <= timeElapsed ) {
         processes[index].added = true;
@@ -29,19 +42,6 @@ const Results = ({processes, quantumValue, exchangeTimeValue}) => {
         //console.log("ArrayProv:", ArrayProv);
       }
     });
-    runProcesses?.forEach((process, index) => {
-      if (!process.child && process.ncpu > 1) {
-        const ArrayProv = runProcesses;
-        ArrayProv[index].child = true;
-        ArrayProv.push({name: process.name, ncpu: process.ncpu-1, startTime: time, child: false});
-        setRunProcesses(ArrayProv);
-        if (process.ncpu == 2) {
-          findTimeOk(process.name);
-        }
-        time = time + quantumValue + exchangeTimeValue;
-        setTimeElapsed(timeElapsed + quantumValue + exchangeTimeValue);
-      }
-    }); 
     ArrayPrev = await calcTime();
     setTimeArray(ArrayPrev);
   }
