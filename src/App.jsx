@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFoundPage";
 import Header from "./components/Header";
 import Contain from "./components/Contain";
 import ResultsPage from "./pages/ResultsPage";
+import LearnRoundRobin from "./pages/LearnRoundRobin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProcessContextProvider from "./context/ProcessContext";
@@ -17,7 +18,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/roundrobin" element={<Contain />}></Route>
+            <Route path="/roundrobin" element={<LearnRoundRobin />}></Route>
             <Route path="/results" element={<ResultsPage />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
