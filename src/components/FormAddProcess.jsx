@@ -9,8 +9,8 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
   const [processInfo, setProcessInfo] = useState({
     id: uuidv4(),
     name: "",
-    arrivalTime: null,
-    ncpu: null,
+    arrivalTime: "",
+    ncpu: "",
     es: [],
   });
 
@@ -41,8 +41,8 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
       es: [
         ...prevState.es,
         {
-          cost_es: null,
-          ncpu: null,
+          cost_es: "",
+          ncpu: "",
         },
       ],
     }));
@@ -53,8 +53,8 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
     setProcessInfo({
       id: uuidv4(),
       name: "",
-      arrivalTime: null,
-      ncpu: null,
+      arrivalTime: "",
+      ncpu: "",
       es: [],
     });
     toast.success("Se ha guardado correctamente el proceso!", {

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProcessContext } from "../context/ProcessContext";
+import { TrashIcon } from '@heroicons/react/24/solid';
 
 const Table = ({ deleteProcess }) => {
   const [NcpuEsLength, setNcpuEsLength] = useState(0);
@@ -53,34 +54,34 @@ const Table = ({ deleteProcess }) => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
+                      className="px-4 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
                     >
                       Proceso
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
+                      className="px-4 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
                     >
                       NCPU en Quantum
                     </th>
-                    {NcpuEsLength.length &&
+                    {NcpuEsLength.length > 0 &&
                       NcpuEsLength?.map((objeto, index) => (
                         <>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
+                            className="px-4 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
                           >
                             Gasta en E/S {index + 1}
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
+                            className="px-4 py-3 text-left text-md font-bold text-white uppercase tracking-wider"
                           >    
                             NCPU en Quantum {index + 1}
                           </th>
                         </>
                       ))}
-                    <th scope="col" className="relative px-6 py-3">
+                    <th scope="col" className="relative">
                       <span className="sr-only">Edit</span>
                     </th>
                   </tr>
@@ -115,7 +116,7 @@ const Table = ({ deleteProcess }) => {
                           </div>
                         </td>
 
-                        {NcpuEsLength.length &&
+                        {NcpuEsLength.length > 0 &&
                           NcpuEsLength?.map((objeto, index) => (
                             <>
                               {process.es[index]?.ncpu ? (
@@ -154,7 +155,7 @@ const Table = ({ deleteProcess }) => {
                             onClick={() => deleteProcess(process.id)}
                             className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-white bg-emerald-500 p-3 rounded hover:focus:outline-none hover:bg-emerald-600 transition-colors duration-300"
                           >
-                            Eliminar
+                            <TrashIcon className='h-6 w-6 cursor-pointer' />
                           </button>
                         </td>
                       </tr>
