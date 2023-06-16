@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const Results = ({processes, quantumValue, exchangeTimeValue}) => {
-  console.log("processes:", processes);
+  //console.log("processes:", processes);
   // console.log("quantumValue:", quantumValue);
   // console.log("exchangeTimeValue:", exchangeTimeValue);
 
@@ -19,29 +19,28 @@ const Results = ({processes, quantumValue, exchangeTimeValue}) => {
     runProcesses?.forEach((process, index) => {
       if (!process.child && process.ncpu > 1) {
         time = time + quantumValue + exchangeTimeValue;
-        console.log("time:", time);
+        //console.log("time:", time);
         const ArrayProv = runProcesses;
         ArrayProv[index].child = true;
         ArrayProv.push({name: process.name, ncpu: process.ncpu-1, startTime: time, child: false});
         setRunProcesses(ArrayProv);
-        console.log("time:", time);
+        //console.log("time:", time);
         setTimeElapsed(timeElapsed + quantumValue + exchangeTimeValue);
-
       }
     }); 
     processes.forEach((process, index) => {
       if ( !process.added && process.arrivalTime <= timeElapsed ) {
         time = time + quantumValue + exchangeTimeValue;
-        console.log("time:", time);
+        //console.log("time:", time);
         processes[index].added = true;
         const ArrayProv = [...runProcesses];
         ArrayProv.push({name: process.name, ncpu: process.ncpu, startTime: time, child: false});
         setRunProcesses(ArrayProv);
-        console.log("time:", time);
+        //console.log("time:", time);
         setTimeElapsed(timeElapsed + quantumValue + exchangeTimeValue);
       }
     });
-    console.log("runProcesses:", runProcesses);
+    //console.log("runProcesses:", runProcesses);
 
     //calcTime();
     ArrayPrev = await calcTime();
@@ -53,12 +52,9 @@ const Results = ({processes, quantumValue, exchangeTimeValue}) => {
     const ArrayPrev = [];
     for (let i = 0; i < runProcesses.length; i++) {
       timeForArray = timeForArray +  quantumValue + exchangeTimeValue;
-      //const ArrayPrev = [...timeArray];
       ArrayPrev.push(timeForArray);
     }
-    //console.log("timeArray", timeArray);
     return ArrayPrev;
-    //setTimeArray(ArrayPrev);
   }
 
   return (

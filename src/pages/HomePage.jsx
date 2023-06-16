@@ -55,7 +55,7 @@ const HomePage = () => {
               Aprende acerca de Round Robin y todo lo que necesitas de este método de forma fácil y eficaz.          </p>
           <div className="flex justify-center mt-5 h-max">
             <Link
-              to="/roundrobin"
+              to="/about"
               className="inline-block px-8 py-3 rounded-lg bg-emerald-400 text-white font-bold 
               hover:bg-emerald-600 py-2 px-4 rounded focus:outline-none focus:shadow-outline 
               transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"

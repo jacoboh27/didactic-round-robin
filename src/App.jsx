@@ -18,7 +18,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/roundrobin" element={<LearnRoundRobin />}></Route>
+            <Route path="/about" element={<LearnRoundRobin />}></Route>
+            <Route path="/roundrobin" element={<Contain />}></Route>
             <Route path="/results" element={<ResultsPage />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
