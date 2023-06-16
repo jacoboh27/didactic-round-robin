@@ -7,11 +7,12 @@ import { ProcessContext } from "../context/ProcessContext";
 const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
   const { processes, setProcesses } = useContext(ProcessContext);
   const [processInfo, setProcessInfo] = useState({
-    id: uuidv4(),
+    added: false,
     name: "",
     arrivalTime: "",
     ncpu: "",
     es: [],
+    id: uuidv4(),
   });
 
   const handleNCPUChange = (event, index) => {
@@ -51,11 +52,12 @@ const FormAddProcess = ({ isModalOpen, setIsModalOpen }) => {
     e.preventDefault();
     setProcesses((prevProcesses) => [...prevProcesses, processInfo]);
     setProcessInfo({
-      id: uuidv4(),
+      added: false,
       name: "",
       arrivalTime: "",
       ncpu: "",
       es: [],
+      id: uuidv4(),
     });
     toast.success("Se ha guardado correctamente el proceso!", {
       position: "top-right",
